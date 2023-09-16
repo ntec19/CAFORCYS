@@ -1,4 +1,4 @@
 # CAFORCYS
 
-_**CA**rtographie des **FOR**mations_ en **CY**bersécurité et **S**écurité_
+_**CA**rtographie des **FOR**mations en **CY**bersécurité et **S**écurité_
 
