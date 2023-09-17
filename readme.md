@@ -5,9 +5,9 @@ _**CA**rtographie des **FOR**mations en **CY**bersécurité et **S**écurité_
 _v20230917_
 
 
-todo : télécharger en python Annuaire éducation dans fichier local, nom stable,  m$eme s'il existe
-requeter (JSON ou CSV) et formater en umap
-
+todo :
+listes de correspondance créées (DICT_FORM_UAI et DICT_UAI_FORM) !
+à faire : créer le fichier umap !
 
 
 ----
