@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 #
 # module setup.py 
-# v20230916
+# v20230917
 
 
 ################################################################
-# CONSTANTES :
+# CONSTANTES FONCTIONNELLES :
 
 DICT_SRC = {
     
@@ -138,7 +138,6 @@ DICT_SCOPE_FORMATIONS = {
         'codeSco':          '32034401',
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.3732' }
 }
-
 '''
     'FOR.': {
         'univers':          '',
@@ -153,11 +152,8 @@ DICT_SCOPE_FORMATIONS = {
 '''
 
 
-
-
-
-
-###
+################################################################
+# CONSTANTES TECHNIQUES :
 
 TEMPO           = 0.1
 NSEP            = 32  # pour l'affichage des séparateurs
@@ -174,7 +170,7 @@ LEG_CHAR        = MAJ + MAJ.lower() + SPE + SPE.lower() + NBR
 
 
 ################################################################
-# FONCTIONS :
+# IMPORTS DES MODULES :
 
 try:
     import sys
@@ -193,18 +189,19 @@ except:
     sys.exit(1)
 
 
+################################################################
+# FONCTIONS :
+
 def clear():
     if os.name == 'nt':
         os.system('cls')
     else:
         os.system('clear')
 
-
 def stamp():
     now = time.localtime()
     res = time.strftime("%Y%m%d_%H%M%S", now)
     return res
-
 
 def sanitize(s):
     res = ""
@@ -215,10 +212,8 @@ def sanitize(s):
             res += CHAR_SUB
     return res
 
-
 def touche():
-    input("-" * NSEP + "\n⌨️ Appuyez sur la touche 'Entrée' pour continuer.\n" + "_" * NSEP + "\n")
-
+    input("-" * NSEP + "\n⌨️  Appuyez sur la touche 'Entrée' pour continuer.\n" + "-" * NSEP + "\n")
 
 def message(type, string):
     if type == 'i':
@@ -230,6 +225,7 @@ def message(type, string):
     else:
         char = ' '
     print(f"\n{'-'*NSEP}\n{char} : {string}\n{'-'*NSEP}\n")
+
 
 
 
