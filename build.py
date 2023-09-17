@@ -11,8 +11,10 @@ from config_caforcys import *
 ################################################################
 # CONSTANTES SPECIFIQUES :
 
-
-url = "https://data.education.gouv.fr/api/explore/v2.1/catalog/datasets/fr-en-annuaire-education/records?where=identifiant_de_l_etablissement%3D%220920158X%22&limit=20"
+uai = "0920138A"
+url = "https://data.education.gouv.fr/api/explore/v2.1/catalog/datasets/fr-en-annuaire-education/records?where=identifiant_de_l_etablissement=\""+uai+"\""
 
 response = requests.get(url)
+payload = response.json()
 print(response)
+print(payload)
