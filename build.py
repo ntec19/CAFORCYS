@@ -6,6 +6,7 @@
 
 # import du module 'setup', contenant les constantes et fonctions communes
 from config_caforcys import *
+clear()
 
 
 ################################################################
@@ -33,6 +34,7 @@ for source in DICT_SRC.keys():
     with open(fileName, 'wb') as f:
         f.write(r.content)
     message('i', f'Fichier "{name}" correctement téléchargé -> {fileName}')
+    touche()
 """
 # 3 fichiers : data-annuaire.csv, data-lycees.csv, data-sup.csv
 
@@ -53,36 +55,41 @@ touche()
 DICT_FORM_UAI = {}
 DICT_UAI_FORM = {}
 
-# Analyse du fichier de données : data-lycees.csv
+# Analyse du fichier de données : data-lycees.csv ET data-sup.csv
 
-with open('data-lycees.csv', 'r', newline='', encoding='utf-8-sig') as csv_file:
-    reader = csv.reader(csv_file, delimiter=';')
-    next(reader) # pour virer la première ligne qui contient les descripteurs de chanps
-    #ligne = 1
-    for row in reader:
-        #ligne += 1
-        #print(ligne)
-        formation = row[2][-8:]
-        if formation in liste_formations:
-            uai = row[10]
-            # print("->", ligne, formation, uai, "\n")
-            #
-            # ajout à DICT_FORM_UAI
-            if formation in DICT_FORM_UAI.keys():
-                DICT_FORM_UAI[formation].append(uai)
-            else:
-                DICT_FORM_UAI[formation] = [uai]
-            # ajout à DICT_UAI_FORM
-            if uai in DICT_UAI_FORM.keys():
-                DICT_UAI_FORM[uai].append(formation)
-            else:
-                DICT_UAI_FORM[uai] = [formation]
+list_files = ['data-lycees.csv', 'data-sup.csv']
 
-# Analyse du fichier de données : data-sup.csv
-
-
-
-
+for file in list_files:
+    with open(file, 'r', newline='', encoding='utf-8-sig') as csv_file:
+        reader = csv.reader(csv_file, delimiter=';')
+        next(reader) # pour virer la première ligne qui contient les descripteurs de champs
+        for row in reader:
+            try:
+                formation = row[2][-8:]         # utile si format de champ non conforme
+            except:
+                formation = 'none'
+            if formation in liste_formations:
+                try:
+                    uai = row[10]               # utile si format de champ non conforme
+                except:
+                    uai = '0000000A'
+                    print(row)
+                    touche()
+                if not uai_check(uai):
+                    uai = '0000000A'
+                    print(row)
+                    touche()
+                # ajout à DICT_FORM_UAI
+                if formation in DICT_FORM_UAI.keys():
+                    DICT_FORM_UAI[formation].append(uai)
+                else:
+                    DICT_FORM_UAI[formation] = [uai]
+                
+                # ajout à DICT_UAI_FORM
+                if uai in DICT_UAI_FORM.keys():
+                    DICT_UAI_FORM[uai].append(formation)
+                else:
+                    DICT_UAI_FORM[uai] = [formation]
 
 
 print("DICT_FORM_UAI", DICT_FORM_UAI)

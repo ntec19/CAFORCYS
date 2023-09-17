@@ -2,3 +2,4 @@ data-annuaire.csv
 data-lycees.csv
 data-sup.csv
 *.pyc
+.~lock*.*

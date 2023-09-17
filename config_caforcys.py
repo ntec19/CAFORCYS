@@ -178,6 +178,7 @@ try:
     import time
     #import shutil
     import csv
+    import re
 except:
     print("❌ Une des bibliothèques standards est manquante !\n")
     sys.exit(1)
@@ -226,7 +227,9 @@ def message(type, string):
         char = ' '
     print(f"\n{'-'*NSEP}\n{char} : {string}\n{'-'*NSEP}\n")
 
-
+def uai_check(uai):
+    pattern = "^\d{7}[A-Z]$"
+    return re.search(pattern, uai)
 
 
 
