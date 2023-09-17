@@ -42,7 +42,7 @@ DICT_SRC = {
         'url' :     'dd',
         'urlData':  'dd',
         'file':     'dd' }, 
-
+}
 
 
 '''
@@ -136,8 +136,9 @@ DICT_SCOPE_FORMATIONS = {
         'rncp':             '35393',
         'codeSco':          '32034401',
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.3732' }
-    
-    '''
+}
+
+'''
     'FOR.': {
         'univers':          '',
         'niveau':           '',
@@ -147,11 +148,8 @@ DICT_SCOPE_FORMATIONS = {
         'formSigle':        '',
         'rncp':             '',
         'codeSco':          '',
-        'urlOnisep':        '' }, '''
-
-}
-
-
+        'urlOnisep':        '' },
+'''
 
 
 
