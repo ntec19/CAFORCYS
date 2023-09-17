@@ -12,9 +12,30 @@ from config_caforcys import *
 # CONSTANTES SPECIFIQUES :
 
 
-url = 'https://www.python.org/static/img/python-logo@2x.png'
-myfile = requests.get(url)
-open('c:/users/LikeGeeks/downloads/PythonImage.png', 'wb').write(myfile.content)
+################################################################
+# TÉLÉCHARGEMENT DES FICHIERS DE DONNÉES :
+
+for source in DICT_SRC.keys():
+    url         = DICT_SRC[source]['urlData']
+    fileName    = DICT_SRC[source]['file']
+    name        = DICT_SRC[source]['name']
+    try:
+        r   = requests.get(url)
+    except:
+        message('e', f'Erreur lors le téléchargement du fichier "{name}"')
+        sys.exit(2)
+    if r.status_code != 200:
+        message('e', f'Erreur d\'accès au fichier "{name}"')
+        sys.exit(2)
+    with open(fileName, 'wb') as f:
+        f.write(r.content)
+    message('i', f'Fichier "{name}" correctement téléchargé -> {fileName}')
+
+
+
+
+
+
 
 
 

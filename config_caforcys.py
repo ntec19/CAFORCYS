@@ -7,41 +7,42 @@
 ################################################################
 # CONSTANTES :
 
-'''
-💡 sources des données pour DICT_SRC :
-Sources :
-
-Annuaire de l'éducation
-https://www.data.gouv.fr/fr/datasets/annuaire-de-leducation/
-fr-en-annuaire-education.csv
-
-Idéo-Actions de formation initiale-Univers lycée
-https://www.data.gouv.fr/fr/datasets/ideo-actions-de-formation-initiale-univers-lycee/
-605340ddc19a9.csv
-
-Idéo-Actions de formation initiale-Univers enseignement supérieur
-https://www.data.gouv.fr/fr/datasets/ideo-actions-de-formation-initiale-univers-enseignement-superieur/
-605344579a7d7.csv
-
-Idéo-Actions de formation-Ile-de-France
-https://www.data.gouv.fr/fr/datasets/ideo-actions-de-formation-ile-de-france/
-5fa41861a282c.zip -> lheo_action_IDF.xml
-??? utile
-'''
 DICT_SRC = {
+    
+    # Annuaire de l'éducation
+    # https://www.data.gouv.fr/fr/datasets/annuaire-de-leducation/
+    # fr-en-annuaire-education.csv
     'annuaireEducation': {
-        'name':     'annuaireEducation',
-        'what':     'Annuaire de l éducation : données sur les établissements publics et privés ouverts situés en France. Le jeu de données couvre le premier degré, le second degré, les Centre d Information et d Orientation ainsi que les établissements administratifs. Sources : données ONISEP et RAMSESE',
-        'url' :     'https://www.data.gouv.fr/fr/datasets/annuaire-de-leducation/',
+        'name':     'Annuaire de l\'éducation',
+        'what':     'Données sur les établissements publics et privés ouverts situés en France. Le jeu de données couvre le premier degré, le second degré, les Centre d Information et d Orientation ainsi que les établissements administratifs. Sources : données ONISEP et RAMSESE',
         'format':   'csv',
         'urlData':  'https://www.data.gouv.fr/fr/datasets/r/b22f04bf-64a8-495d-b8bb-d84dbc4c7983',
-        'file':     'annuaire.csv' },
-    'dd': {
-        'name':     'dd',
-        'what':     'd',
-        'url' :     'dd',
-        'urlData':  'dd',
-        'file':     'dd' }, 
+        'file':     'data-annuaire.csv' },
+    
+    # Idéo-Actions de formation initiale-Univers lycée
+    # https://www.data.gouv.fr/fr/datasets/ideo-actions-de-formation-initiale-univers-lycee/
+    # 605340ddc19a9.csv
+    'actionsFormLycees': {
+        'name':     'Idéo-Actions de formation initiale-Univers lycée',
+        'what':     'La formation initiale, qu\'elle soit générale ou professionnelle, est le périmètre traditionnel de l\'Onisep, qui s\'adresse en priorité aux jeunes pour une phase de première orientation à différentes étapes de leur cursus scolaire et étudiant. Les grandes étapes en étant jusqu\'ici principalement, mais pas uniquement, l\'orientation en fin de 3e ou l\'orientation en fin de Terminale.\nUne « action de formation » (AF) au sens Onisep est la mise en œuvre, dans un établissement enregistré et localisé, d\'une formation. Cette notion rejoint souvent l\'expression d\' « offre de formation » parfois utilisée par d\'autres organismes.\nPérimètre de ce jeu : les actions de formation initiale ainsi définies, et référencées par l\'Onisep pour le lycée (formations de niveau 2de, 1re, bac, CAP, CAP+1 ou équivalent…) et proposées principalement sous statut scolaire ou étudiant.\n\nAttention l\'Onisep ne diffuse plus sur ce site open data l\'offre de formation en apprentissage, dont il n\'assure pas la collecte exhaustive. Un décret confie désormais cette collecte aux Carif-Oref : http://opendata.onisep.fr/actualite/53/8-apprentissage-les-jeux-open-data-onisep-evoluent.htm',
+        'format':   'csv',
+        'urlData':  'https://www.data.gouv.fr/fr/datasets/r/608e09c8-6ea2-473c-99bb-1526dfb95771',
+        'file':     'data-lycees.csv' },
+    
+    # Idéo-Actions de formation initiale-Univers enseignement supérieur
+    # https://www.data.gouv.fr/fr/datasets/ideo-actions-de-formation-initiale-univers-enseignement-superieur/
+    # 605344579a7d7.csv
+    'actionsFormSup': {
+        'name':     'Idéo-Actions de formation initiale-Univers enseignement supérieur',
+        'what':     'La formation initiale, qu\'elle soit générale ou professionnelle, est le périmètre traditionnel de l\'Onisep, qui s\'adresse en priorité aux jeunes pour une phase de première orientation à différentes étapes de leur cursus scolaire et étudiant. Les grandes étapes en étant jusqu\'ici principalement, mais pas uniquement, l\'orientation en fin de 3e ou l\'orientation en fin de Terminale.\nUne « action de formation » (AF) au sens Onisep est la mise en œuvre, dans un établissement enregistré et localisé, d\'une formation. Cette notion rejoint souvent l\'expression d\'« offre de formation » parfois utilisée par d\'autres organismes.\nPérimètre de ce jeu : les actions de formation initiale ainsi définies, et référencées par l\'Onisep pour l\'enseignement supérieur (formations post-baccalauréat) et proposées principalement sous statut scolaire ou étudiant.\n\nAttention l\'Onisep ne diffuse plus sur ce site open data l\'offre de formation en apprentissage, dont il n\'assure pas la collecte exhaustive. Un décret confie désormais cette collecte aux Carif-Oref : http://opendata.onisep.fr/actualite/53/8-apprentissage-les-jeux-open-data-onisep-evoluent.htm',
+        'format':   'csv',
+        'urlData':  'https://www.data.gouv.fr/fr/datasets/r/01e96878-8692-49a2-89dc-f9441ef4293d',
+        'file':     'data-sup.csv' }
+    
+    # Idéo-Actions de formation-Ile-de-France
+    # https://www.data.gouv.fr/fr/datasets/ideo-actions-de-formation-ile-de-france/
+    # 5fa41861a282c.zip -> lheo_action_IDF.xml
+    # ??? inutile ???
 }
 
 
@@ -176,7 +177,7 @@ LEG_CHAR        = MAJ + MAJ.lower() + SPE + SPE.lower() + NBR
 # FONCTIONS :
 
 try:
-    #import sys
+    import sys
     import os
     import time
     #import shutil
@@ -219,8 +220,16 @@ def touche():
     input("-" * NSEP + "\n⌨️ Appuyez sur la touche 'Entrée' pour continuer.\n" + "_" * NSEP + "\n")
 
 
-def info(s):
-    print(f"\n{'-'*NSEP}\nℹ️ : {s}\n{'_'*NSEP}\n")
+def message(type, string):
+    if type == 'i':
+        char = 'ℹ️'
+    elif type == 'w':
+        char = '⚠️'
+    elif type == 'e':
+        char = '❌'
+    else:
+        char = ' '
+    print(f"\n{'-'*NSEP}\n{char} : {string}\n{'-'*NSEP}\n")
 
 
 
