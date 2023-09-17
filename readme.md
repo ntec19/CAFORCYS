@@ -1,6 +1,8 @@
-# CAFORCYS
+# CaForCyS
 
 _**CA**rtographie des **FOR**mations en **CY**bersécurité et **S**écurité_
+
+_v20230917_
 
 
 todo : télécharger en python Annuaire éducation dans fichier local, nom stable,  m$eme s'il existe
