@@ -45,7 +45,6 @@ DICT_SRC = {
     # ??? inutile ???
 }
 
-
 '''
 💡 sources des données pour DICT_SCOPE_FORMATIONS :
 
@@ -150,6 +149,8 @@ DICT_SCOPE_FORMATIONS = {
         'codeSco':          '',
         'urlOnisep':        '' },
 '''
+
+SYNTHETIC_CSV_FILE = 'synthese.csv'
 
 
 ################################################################

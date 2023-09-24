@@ -105,10 +105,11 @@ for file in list_files:
                 else:
                     dict_uai_form[uai] = [formation]
 
-
 #print("dict_form_uai :\n", dict_form_uai)
 #print("dict_uai_form :\n",dict_uai_form, "\n")
-#touche()
+message('i', f'Fin de la construction des dictionnaire \'dict_form_uai\' et \'dict_uai_form\' !')
+touche()
+
 
 # pour mes tests :
 dict_uai_form = {
@@ -136,35 +137,73 @@ dict_uai_form = {
     ],
 }
 
-'''
-# Pour générer le fichier csv avec une ligne par formation
-for uai in dict_uai_form.keys():
-    for course in dict_uai_form[uai]:
-        print(uai, course)
-'''
-
-message('i', '----')
-
 
 ################################################################
 # contruction d'un (grand!) dictionnaires des établissements (annuaire)
 
-directory = 'test.csv'
-dict_annuaire = {}
-key = 'id' #'identifiant_de_l_etablissement'
+directory = 'data-annuaire.csv'
+key = 'identifiant_de_l_etablissement'
+dict_directory = {}
 with open(directory, 'r', newline='', encoding='utf-8-sig') as csv_file:
     lecteur_csv = csv.DictReader(csv_file, delimiter=';')
     for row in lecteur_csv:
-        # Récupérez la valeur de la colonne 'id' comme clé du dictionnaire
+        # Récupérez la valeur de la colonne 'identifiant_de_l_etablissement' comme clé du dictionnaire
         k = row[key]
-        # Supprimez la colonne 'id' des données
-        del row[key]
-        # Utilisez la clé 'id' pour ajouter les données restantes dans le dictionnaire
-        dict_annuaire[k] = row
-# Affichez le dictionnaire résultant
-print(dict_annuaire)
-print(sys.getsizeof(dict_annuaire))
+        # Supprimez la colonne 'identifiant_de_l_etablissement' des données
+        # del row[key] => non, car plus simple à récupérer ensuite
+        # Utilisez la clé 'identifiant_de_l_etablissement' pour ajouter le dictionnaire de l'étab dans le dictionnaire
+        dict_directory[k] = row
+# pour des tests :
+# print(dict_directory)
+# print(sys.getsizeof(dict_directory))
+# print(dict_directory['0921229L'])
 
+
+################################################################
+# contruction d'un dictionnaires étab+formation pour le scope
+
+list_etablCourse = []  # liste de dictionnaires
+
+# définition manuelle de 'header_uai' car de nombreux champs en sont pas pertinents :
+header_etab = ["identifiant_de_l_etablissement", "nom_etablissement", "adresse_1", "adresse_2", "adresse_3", "code_postal", "nom_commune", "libelle_departement", "libelle_academie", "fiche_onisep", "type_etablissement", "statut_public_prive", "libelle_nature", "telephone", "mail", "web", "latitude", "longitude"]
+
+# je récupère les clés utilisés dans les formations du dict DICT_SCOPE_FORMATIONS :
+header_course = list(DICT_SCOPE_FORMATIONS[next(iter(DICT_SCOPE_FORMATIONS))].keys())
+# donne : ['univers', 'niveau', 'formTypeSigle', 'formTypeLib', 'formLib', 'formSigle', 'rncp', 'codeSco', 'urlOnisep']
+
+# je construis le ligne d'entêtes en préfixant par 'etab_' et 'course_' :
+header = [ 'etab_'+i for i in header_etab ] + [ 'course_'+i for i in header_course ]
+
+# je construis 'list_etablCourse' en itérant par uai, puis par formation :
+for uai in dict_uai_form.keys():
+    for course in dict_uai_form[uai]:
+        print("----------------\n", uai, course)
+        dict_row = {}
+        for champ_etab in header_etab:
+            try:
+                value = dict_directory[uai][champ_etab]
+            except KeyError:
+                value = None
+            dict_row['etab_'+champ_etab] = value
+        for champ_course in header_course:
+            try:
+                value = DICT_SCOPE_FORMATIONS[course][champ_course]
+            except KeyError:
+                value = None
+            dict_row['course_'+champ_course] = value
+        list_etablCourse.append(dict_row)
+#print(list_etablCourse)
+
+
+################################################################
+# Écriture du fichier CSV pour stocker toutes les données de 'list_etablCourse' :
+
+with open(SYNTHETIC_CSV_FILE, 'w', newline='', encoding='utf-8-sig') as csv_file:
+    writer = csv.DictWriter(csv_file, fieldnames=header)
+    writer.writeheader()
+    writer.writerows(list_etablCourse)
+
+print("Done!")
 
 
 
