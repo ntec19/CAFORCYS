@@ -104,8 +104,8 @@ for file in list_files:
                 else:
                     dict_uai_form[uai] = [formation]
 
-print("dict_form_uai :\n", dict_form_uai)
-print("dict_uai_form :\n",dict_uai_form, "\n")
+# print("dict_form_uai :\n", dict_form_uai)
+# print("dict_uai_form :\n",dict_uai_form, "\n")
 message('i', f'Fin de la construction des dictionnaire \'dict_form_uai\' et \'dict_uai_form\' !')
 touche()
 
@@ -169,7 +169,7 @@ header_etab = ["identifiant_de_l_etablissement", "nom_etablissement", "adresse_1
 
 # je récupère les clés utilisés dans les formations du dict DICT_SCOPE_FORMATIONS :
 header_course = list(DICT_SCOPE_FORMATIONS[next(iter(DICT_SCOPE_FORMATIONS))].keys())
-# donne : ['univers', 'niveau', 'formTypeSigle', 'formTypeLib', 'formLib', 'formSigle', 'rncp', 'codeSco', 'urlOnisep']
+# donne : ['code', 'univers', 'niveau', 'formTypeSigle', 'formTypeLib', 'formLib', 'formSigle', 'rncp', 'codeSco', 'urlOnisep']
 
 # je construis le ligne d'entêtes en préfixant par 'etab_' et 'course_' :
 header = [ 'etab_'+i for i in header_etab ] + [ 'course_'+i for i in header_course ]
@@ -209,8 +209,62 @@ with open(SYNTHETIC_CSV_FILE, 'w', newline='', encoding='utf-8-sig') as csv_file
     writer.writeheader()
     writer.writerows(list_etablCourse)
 
+message('i', f"Fichier de synthèse '{SYNTHETIC_CSV_FILE}' créé !")
+touche()
 
-print("Done!")
+
+################################################################
+# Création du fichier UMAP pour la carte
+
+listFeaturesCyber =[]
+listFeaturesSecu =[]
+
+# Ouverture du fichier CSV de synthèse précédemment créé:
+with open(SYNTHETIC_CSV_FILE, 'r', newline='', encoding='utf-8-sig') as csv_file: 
+    reader = csv.reader(csv_file, delimiter =';')
+    next(reader)  # pour faire sauter la première ligne qui contient les descripteurs
+    for row in reader:
+        print(row)
+        try:
+            point = geojson.Point((float(row[17]), float(row[16])))
+        except:
+            continue
+        name = row[23]
+        description         =  '**' + row[1] + '**\n'
+        if row[2] != '':
+            description     += row[2] + '\n'
+        if row[3] != '':
+            description     += row[3] + '\n'
+        if row[4] != '':
+            description     += row[4] + '\n'
+        description         += row[5] + ' **' + row[6] + '** (' + row[7] + ')\n'
+        description         += 'académie : ' + row[8] + '\n'
+        description         += 'téléphone : ' + row[13] + '\n'
+        description         += 'courriel : [[' + row[14] + ']]\n'
+        description         += 'infos établissement : [[' + row[15] + '|site web]] - [[' + row[9] + '|fiche Onisep]]\n'
+        description         += '\n'
+        description         += 'formation de niveau : **' + row[20] + '** *(' + row[21] + ')*\n'
+        description         += '[[' + row[27] + '|fiche Oniwep]] - [[https://www.francecompetences.fr/recherche/rncp/' + row[25] + '/|fiche RNCP]]\n'
+        properties = { "_umap_options": { "color": row[28], "iconClass": "Drop", "showLabel": None, }, "name": name, "description": description }
+        feature = geojson.Feature(geometry=point, properties=properties)
+        print(feature)
+        touche()
+        if row[18] == 'cyber':
+            listFeaturesCyber.append(feature)
+        if row[18] == 'sécu':
+            listFeaturesSecu.append(feature)
+
+
+
+
+'''
+0                                   1                      2              3              4              5                6                7                        8                     9                 10                      11                       12                  13             14        15       16            17             18             19            20                   21                 22             23               24          25             26               27
+etab_identifiant_de_l_etablissement;etab_nom_etablissement;etab_adresse_1;etab_adresse_2;etab_adresse_3;etab_code_postal;etab_nom_commune;etab_libelle_departement;etab_libelle_academie;etab_fiche_onisep;etab_type_etablissement;etab_statut_public_prive;etab_libelle_nature;etab_telephone;etab_mail;etab_web;etab_latitude;etab_longitude;course_univers;course_niveau;course_formTypeSigle;course_formTypeLib;course_formLib;course_formSigle;course_rncp;course_codeSco;course_urlOnisep;course_color
+0921626T;Lycée professionnel industriel Claude Chappe;54-80 rue des Alouettes;;;92000;Nanterre;Hauts-de-Seine;Versailles;https://www.onisep.fr/http/redirection/etablissement/slug/ENS.15654;Lycée;Public;LYCEE PROFESSIONNEL;01 46 25 05 80;0921626t@ac-versailles.fr;http://www.lyc-claudechappe-nanterre.ac-versailles.fr;48.883562811153844;2.2114494917885015;cyber;4;bac pro;baccalauréat professionnel;bac pro cybersécurité, informatique et réseaux, électronique;CIEL;37489;40025519;http://www.onisep.fr/http/redirection/formation/slug/FOR.8727;#00ff00
+0        1                                            2                      34 5     6        7              8          9                                                                   10    11     12                  13             14                        15                                                    16                 17                 18    19 20     21                         22                                                           23   24    25       26                                                            27
+                                                                                                                                                                                                                                                                                                                             x                  x                                                             x                                                                                          
+'''
+
 
 
 

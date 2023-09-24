@@ -68,6 +68,7 @@ XML complet avec descriptif, poursuites d'études, métiers, etc.
 DICT_SCOPE_FORMATIONS = {
     
     'FOR.8727': {
+        'code':             'FOR.8727',
         'univers':          'cyber',
         'niveau':           '4',
         'formTypeSigle':    'bac pro',
@@ -76,20 +77,24 @@ DICT_SCOPE_FORMATIONS = {
         'formSigle':        'CIEL',
         'rncp':             '37489',
         'codeSco':          '40025519',
-        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.8727' },
+        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.8727',
+        'color':            '#ff9999' },
     
     'FOR.8513': {
+        'code':             'FOR.8513',
         'univers':          'cyber',
         'niveau':           '4',
         'formTypeSigle':    'MC',
         'formTypeLib':      'mention complémentaire',
         'formLib' :         'MC cybersécurité',
-        'formSigle':        '',
+        'formSigle':        'cybersécurité',
         'rncp':             '37488',
         'codeSco':          '01025509',
-        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.8513' },
+        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.8513',
+        'color':            '#ff6666'  },
     
     'FOR.8472': {
+        'code':             'FOR.8472',
         'univers':          'cyber',
         'niveau':           '5',
         'formTypeSigle':    'BTS',
@@ -98,9 +103,11 @@ DICT_SCOPE_FORMATIONS = {
         'formSigle':        'CIEL IR',
         'rncp':             '37391',
         'codeSco':          '32020116',
-        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.8472' },
+        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.8472',
+        'color':            '#ff3333'  },
     
     'FOR.8473': {
+        'code':             'FOR.8473',
         'univers':          'cyber',
         'niveau':           '5',
         'formTypeSigle':    'BTS',
@@ -109,9 +116,11 @@ DICT_SCOPE_FORMATIONS = {
         'formSigle':        'CIEL ER',
         'rncp':             '37391',
         'codeSco':          '32025521',
-        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.8473' },
+        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.8473',
+        'color':            '#ff0000'  },
     
     'FOR.3651': {
+        'code':             'FOR.3651',
         'univers':          'sécu',
         'niveau':           '4',
         'formTypeSigle':    'bac pro',
@@ -120,9 +129,11 @@ DICT_SCOPE_FORMATIONS = {
         'formSigle':        '',
         'rncp':             '19114',
         'codeSco':          '40034403',
-        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.3651' },
+        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.3651',
+        'color':            '#66ff66'  },
     
     'FOR.3732': {
+        'code':             'FOR.3732',
         'univers':          'sécu',
         'niveau':           '5',
         'formTypeSigle':    'BTS',
@@ -131,10 +142,12 @@ DICT_SCOPE_FORMATIONS = {
         'formSigle':        'MOS',
         'rncp':             '35393',
         'codeSco':          '32034401',
-        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.3732' }
+        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.3732',
+        'color':            '#33ff33'  }
 }
 '''
     'FOR.': {
+        'code':             '',
         'univers':          '',
         'niveau':           '',
         'formTypeSigle':    '',
@@ -143,7 +156,8 @@ DICT_SCOPE_FORMATIONS = {
         'formSigle':        '',
         'rncp':             '',
         'codeSco':          '',
-        'urlOnisep':        '' },
+        'urlOnisep':        '',
+        'color':            ''  },
 '''
 
 SYNTHETIC_CSV_FILE = 'synthese.csv'
@@ -187,6 +201,11 @@ except:
     print("❌ La bibliothèque \"request\" est manquante !\n")
     sys.exit(1)
 
+try:
+    import geojson
+except:
+    print("❌ La bibliothèque \"geojson\" est manquante !\n")
+    sys.exit(1)
 
 ################################################################
 # FONCTIONS :
