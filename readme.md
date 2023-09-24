@@ -15,7 +15,6 @@ listes de correspondance créées (DICT_FORM_UAI et DICT_UAI_FORM) !
 ## Jeux de données susceptibles d'être pertinents :
 
 ```
-
 Inserjeunes Voie professionnelle scolaire par lycée d'enseignement professionnel
 https://www.data.gouv.fr/fr/datasets/inserjeunes-voie-professionnelle-scolaire-par-lycee-denseignement-professionnel/
 fr-en-inserjeunes-lycee_pro.csv
@@ -121,7 +120,6 @@ fr-en-liste-diplomes-professionnels.csv
 Table de passage codes certifications et formations
 https://www.data.gouv.fr/fr/datasets/table-de-passage-codes-certifications-et-formations/
 6152ccdf850ef.csv
-
 ```
 
 ## Mise en forme du texte dans uMap
@@ -140,6 +138,20 @@ https://www.data.gouv.fr/fr/datasets/table-de-passage-codes-certifications-et-fo
     Iframe avec hauteur (en pixels): {{{http://iframe.url.com|hauteur}}}
     Iframe avec hauteur et largeur (en px) : {{{http://iframe.url.com|height*width}}}
     --- pour un séparateur horizontal
+```
+
+----
+
+## Notes diverses
+
+```
+Test de l'API "Annuaire éducation"
+uai = "0920138A"
+url = "https://data.education.gouv.fr/api/explore/v2.1/catalog/datasets/fr-en-annuaire-education/records?where=identifiant_de_l_etablissement=\""+uai+"\""
+response = requests.get(url)
+payload = response.json()
+print(response)
+print(payload)
 ```
 
 

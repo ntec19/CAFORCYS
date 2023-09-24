@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 # module setup.py 
-# v20230917
+# v20230924
 
 
 ################################################################
@@ -155,11 +155,12 @@ DICT_SCOPE_FORMATIONS = {
 ################################################################
 # CONSTANTES TECHNIQUES :
 
-TEMPO           = 0.1
+TEMPO           = 0.1 # !!PB!! utile ?
 NSEP            = 32  # pour l'affichage des séparateurs
 NEWLINE         = "\n"  # pour le saut de ligne dans le print de DOC
 
 # pour sanitize()
+# !!PB!! utile ?
 CHAR_SEP        = "+"
 CHAR_SUB        = "_"
 MAJ             = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -205,6 +206,7 @@ def stamp():
     return res
 
 def sanitize(s):
+    # !!PB!! utile ?
     res = ""
     for letter in s:
         if letter in LEG_CHAR:
@@ -228,6 +230,7 @@ def message(type, string):
     print(f"\n{'-'*NSEP}\n{char} : {string}\n{'-'*NSEP}\n")
 
 def uai_check(uai):
+    # renvoie True si l'argument passé est un UAI valide : 0921234A
     pattern = "^\d{7}[A-Z]$"
     return re.search(pattern, uai)
 
