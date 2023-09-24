@@ -49,7 +49,6 @@ for s in DICT_SRC.keys():
 if not validDataFiles:
     message('e', f'Un problème est survenu : tous les fichiers de données nécessaires ne sont pas disponibles !')
     sys.exit(2)
-
 # 3 fichiers désormais présents dans le répertoire courant : : data-annuaire.csv, data-lycees.csv, data-sup.csv
 
 
@@ -105,13 +104,13 @@ for file in list_files:
                 else:
                     dict_uai_form[uai] = [formation]
 
-#print("dict_form_uai :\n", dict_form_uai)
-#print("dict_uai_form :\n",dict_uai_form, "\n")
+print("dict_form_uai :\n", dict_form_uai)
+print("dict_uai_form :\n",dict_uai_form, "\n")
 message('i', f'Fin de la construction des dictionnaire \'dict_form_uai\' et \'dict_uai_form\' !')
 touche()
 
-
-# pour mes tests :
+'''
+Pour mes tests, jeu de données réduits :
 dict_uai_form = {
     "0101015Z": [
         "FOR.8727"
@@ -136,6 +135,7 @@ dict_uai_form = {
         "FOR.8727"
     ],
 }
+'''
 
 
 ################################################################
@@ -153,14 +153,14 @@ with open(directory, 'r', newline='', encoding='utf-8-sig') as csv_file:
         # del row[key] => non, car plus simple à récupérer ensuite
         # Utilisez la clé 'identifiant_de_l_etablissement' pour ajouter le dictionnaire de l'étab dans le dictionnaire
         dict_directory[k] = row
-# pour des tests :
+# pour mes tests :
 # print(dict_directory)
 # print(sys.getsizeof(dict_directory))
 # print(dict_directory['0921229L'])
 
 
 ################################################################
-# contruction d'un dictionnaires étab+formation pour le scope
+# contruction d'une liste de dictionnaires étab+formation pour le scope
 
 list_etablCourse = []  # liste de dictionnaires
 
@@ -176,22 +176,28 @@ header = [ 'etab_'+i for i in header_etab ] + [ 'course_'+i for i in header_cour
 
 # je construis 'list_etablCourse' en itérant par uai, puis par formation :
 for uai in dict_uai_form.keys():
+    if uai == "" or uai == None:
+        continue
     for course in dict_uai_form[uai]:
-        print("----------------\n", uai, course)
+        #print("----------------\n", uai, course)
         dict_row = {}
+        error = False
         for champ_etab in header_etab:
             try:
                 value = dict_directory[uai][champ_etab]
             except KeyError:
                 value = None
+                error = True
             dict_row['etab_'+champ_etab] = value
         for champ_course in header_course:
             try:
                 value = DICT_SCOPE_FORMATIONS[course][champ_course]
             except KeyError:
                 value = None
+                error = True
             dict_row['course_'+champ_course] = value
-        list_etablCourse.append(dict_row)
+        if not error:
+            list_etablCourse.append(dict_row)
 #print(list_etablCourse)
 
 
@@ -199,13 +205,25 @@ for uai in dict_uai_form.keys():
 # Écriture du fichier CSV pour stocker toutes les données de 'list_etablCourse' :
 
 with open(SYNTHETIC_CSV_FILE, 'w', newline='', encoding='utf-8-sig') as csv_file:
-    writer = csv.DictWriter(csv_file, fieldnames=header)
+    writer = csv.DictWriter(csv_file, fieldnames=header, delimiter =';')
     writer.writeheader()
     writer.writerows(list_etablCourse)
+
 
 print("Done!")
 
 
+
+'''
+to be continued :
+
+à partir de ce très beau fichier synthèse.csv,
+créer un encore plus beau fichier UMAP en utilisant la bibliothèque geojson
+Deux calques : cyber et sécu
+
+Dans les formations (DICT_SCOPE_FORMATIONS), ajouter une couleur pour les POI
+
+'''
 
 
 
