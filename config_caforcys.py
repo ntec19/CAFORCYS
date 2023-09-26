@@ -160,7 +160,9 @@ DICT_SCOPE_FORMATIONS = {
         'color':            ''  },
 '''
 
-SYNTHETIC_CSV_FILE = 'synthese.csv'
+SYNTHETIC_CSV_FILE  = 'synthese.csv'
+UMAP_TEMPLATE       = 'caforcys.umap.template'
+UMAP_TARGET         = 'caforcys.umap'
 
 
 ################################################################

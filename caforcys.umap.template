@@ -1,0 +1,95 @@
+{
+    "geometry": {
+        "coordinates": [
+            1.99951171875,
+            50.9999288558597
+        ],
+        "type": "Point"
+    },
+    "layers": [
+        {
+            "_umap_options": {
+                "browsable": true,
+                "cluster": {
+                },
+                "displayOnLoad": true,
+                "editMode": "advanced",
+                "name": "Formations sécurité - sûreté",
+                "permissions": {
+                    "edit_status": 0
+                },
+                "remoteData": {
+                },
+                "type": "Cluster"
+            },
+            "features": to_be_replaced_secu,
+            "type": "FeatureCollection"
+        },
+        {
+            "_umap_options": {
+                "browsable": true,
+                "cluster": {
+                },
+                "displayOnLoad": true,
+                "editMode": "advanced",
+                "name": "Formations cybersécurité",
+                "permissions": {
+                    "edit_status": 0
+                },
+                "remoteData": {
+                },
+                "type": "Cluster"
+            },
+            "features": to_be_replaced_cyber,
+            "type": "FeatureCollection"
+        }
+    ],
+    "properties": {
+        "captionBar": false,
+        "captionMenus": false,
+        "color": "LawnGreen",
+        "datalayersControl": "expanded",
+        "description": "Carte des formations en sécurité et cybersécurité",
+        "displayPopupFooter": false,
+        "easing": false,
+        "editinosmControl": false,
+        "embedControl": null,
+        "fullscreenControl": null,
+        "iconClass": "Drop",
+        "iconUrl": "/uploads/pictogram/college-24.png",
+        "licence": {
+            "name": "Licence ouverte/Open Licence",
+            "url": "http://www.data.gouv.fr/Licence-Ouverte-Open-Licence"
+        },
+        "limitBounds": {
+        },
+        "locateControl": true,
+        "measureControl": null,
+        "miniMap": false,
+        "moreControl": true,
+        "name": "CaForCyS",
+        "onLoadPanel": "none",
+        "overlay": {
+        },
+        "permanentCreditBackground": true,
+        "scaleControl": true,
+        "scrollWheelZoom": true,
+        "searchControl": null,
+        "shortCredit": "by CMQ",
+        "slideshow": {
+        },
+        "tilelayer": {
+            "attribution": "[[https://geoservices.ign.fr/planign|{{https://wxs.ign.fr/static/logos/IGN/IGN.gif|32}}]]",
+            "maxZoom": 19,
+            "minZoom": 0,
+            "name": "Plan IGN",
+            "tms": false,
+            "url_template": "//wxs.ign.fr/pratique/wmts/?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image%2Fpng"
+        },
+        "tilelayersControl": false,
+        "zoom": 6,
+        "zoomControl": true
+    },
+    "type": "umap",
+    "uri": "https://umap.openstreetmap.fr/fr/map/caforcys_960988#10/48.8954/2.3277"
+}

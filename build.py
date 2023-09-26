@@ -224,7 +224,7 @@ with open(SYNTHETIC_CSV_FILE, 'r', newline='', encoding='utf-8-sig') as csv_file
     reader = csv.reader(csv_file, delimiter =';')
     next(reader)  # pour faire sauter la première ligne qui contient les descripteurs
     for row in reader:
-        print(row)
+        #print(row)
         try:
             point = geojson.Point((float(row[17]), float(row[16])))
         except:
@@ -247,22 +247,34 @@ with open(SYNTHETIC_CSV_FILE, 'r', newline='', encoding='utf-8-sig') as csv_file
         description         += '[[' + row[27] + '|fiche Oniwep]] - [[https://www.francecompetences.fr/recherche/rncp/' + row[25] + '/|fiche RNCP]]\n'
         properties = { "_umap_options": { "color": row[28], "iconClass": "Drop", "showLabel": None, }, "name": name, "description": description }
         feature = geojson.Feature(geometry=point, properties=properties)
-        print(feature)
-        touche()
-        if row[18] == 'cyber':
+        #print('\n\nfeature :\n', feature,'\n')
+        #touche()
+        if row[19] == 'cyber':
             listFeaturesCyber.append(feature)
-        if row[18] == 'sécu':
+        if row[19] == 'sécu':
             listFeaturesSecu.append(feature)
+        #print('listFeaturesCyber :\n', listFeaturesCyber,'\n')
+        #print('listFeaturesSecu :\n', listFeaturesCyber,'\n')
 
+with open(UMAP_TEMPLATE, 'r', encoding="utf-8") as f:
+    umapString = f.read()
 
+umapString  = umapString.replace('to_be_replaced_secu',str(listFeaturesSecu)).replace('to_be_replaced_cyber',str(listFeaturesCyber))
+
+with open(UMAP_TARGET, 'w', encoding="utf-8") as f:
+    f.write(umapString)
+
+with open('secu.geojson', 'w', encoding="utf-8") as f:
+    f.write(str(listFeaturesSecu))
+with open('cyber.geojson', 'w', encoding="utf-8") as f:
+    f.write(str(listFeaturesCyber))
 
 
 '''
-0                                   1                      2              3              4              5                6                7                        8                     9                 10                      11                       12                  13             14        15       16            17             18             19            20                   21                 22             23               24          25             26               27
-etab_identifiant_de_l_etablissement;etab_nom_etablissement;etab_adresse_1;etab_adresse_2;etab_adresse_3;etab_code_postal;etab_nom_commune;etab_libelle_departement;etab_libelle_academie;etab_fiche_onisep;etab_type_etablissement;etab_statut_public_prive;etab_libelle_nature;etab_telephone;etab_mail;etab_web;etab_latitude;etab_longitude;course_univers;course_niveau;course_formTypeSigle;course_formTypeLib;course_formLib;course_formSigle;course_rncp;course_codeSco;course_urlOnisep;course_color
-0921626T;Lycée professionnel industriel Claude Chappe;54-80 rue des Alouettes;;;92000;Nanterre;Hauts-de-Seine;Versailles;https://www.onisep.fr/http/redirection/etablissement/slug/ENS.15654;Lycée;Public;LYCEE PROFESSIONNEL;01 46 25 05 80;0921626t@ac-versailles.fr;http://www.lyc-claudechappe-nanterre.ac-versailles.fr;48.883562811153844;2.2114494917885015;cyber;4;bac pro;baccalauréat professionnel;bac pro cybersécurité, informatique et réseaux, électronique;CIEL;37489;40025519;http://www.onisep.fr/http/redirection/formation/slug/FOR.8727;#00ff00
-0        1                                            2                      34 5     6        7              8          9                                                                   10    11     12                  13             14                        15                                                    16                 17                 18    19 20     21                         22                                                           23   24    25       26                                                            27
-                                                                                                                                                                                                                                                                                                                             x                  x                                                             x                                                                                          
+row :
+0                                           1                                       2                               3                   4                   5                       6                       7                               8                           9                                                                       10                          11                                  12                          13                              14                              15                              16                      17                          18                  19                      20                  21                          22                                      23                                                  24                          25                  26                  27                                                                  28
+['etab_identifiant_de_l_etablissement',     'etab_nom_etablissement',               'etab_adresse_1',               'etab_adresse_2',   'etab_adresse_3',   'etab_code_postal',     'etab_nom_commune',     'etab_libelle_departement',     'etab_libelle_academie',    'etab_fiche_onisep',                                                    'etab_type_etablissement',  'etab_statut_public_prive',         'etab_libelle_nature',      'etab_telephone',               'etab_mail',                    'etab_web',                     'etab_latitude',        'etab_longitude',           'course_code',      'course_univers',       'course_niveau',    'course_formTypeSigle',     'course_formTypeLib',                   'course_formLib',                                   'course_formSigle',         'course_rncp',      'course_codeSco',   'course_urlOnisep',                                                 'course_color']
+['0850028U',                                'Lycée professionnel Edouard Branly',   '5 boulevard Edouard Branly',   'BP 259',           '',                 '85006',                'La Roche-sur-Yon',     'Vendée',                       'Nantes',                   'https://www.onisep.fr/http/redirection/etablissement/slug/ENS.3241',   'Lycée',                    'Public',                           'LYCEE PROFESSIONNEL',      '02 51 24 06 06',               'ce.0850028u@ac-nantes.fr',     'http://branly.e-lyco.fr/',     '46.67421847152482',    '-1.4419439014403423',      'FOR.3732',         'sécu',                 '5',                'BTS',                      'brevet de technicien supérieur',       'BTS Management opérationnel de la sécurité',       'MOS',                      '35393',            '32034401',         'http://www.onisep.fr/http/redirection/formation/slug/FOR.3732',    '#33ff33']
 '''
 
 
@@ -275,7 +287,6 @@ to be continued :
 créer un encore plus beau fichier UMAP en utilisant la bibliothèque geojson
 Deux calques : cyber et sécu
 
-Dans les formations (DICT_SCOPE_FORMATIONS), ajouter une couleur pour les POI
 
 '''
 

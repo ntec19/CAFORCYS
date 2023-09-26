@@ -1,14 +1,20 @@
-# CaForCyS
-
 _**CA**rtographie des **FOR**mations en **CY**bersécurité et **S**écurité_
 
-_v20230917_
+# CaForCyS
 
+_v20230926_
 
-todo :
-listes de correspondance créées (DICT_FORM_UAI et DICT_UAI_FORM) !
-à faire : créer le fichier umap !
+----
 
+Les objectifs de cette moulinette en Python sont les suivants :
+- récupérer automatiquement les données ouvertes nécessaires mises à disposition sur data.gouv.fr :
+    - annuaire des établissements
+    - liste des formations
+- extraire les formations liées à la sécurité et à la cybersécurité
+- construire un fichier tableur, parr ligne, info formation et info établissement
+- construire un fichier umap à importer dans OSM pour proposer une cartographie exhaustive
+
+  
 
 ----
 
@@ -99,7 +105,7 @@ https://www.data.gouv.fr/fr/datasets/ideo-nomenclature-onisep-domaines-et-sous-d
 
 Annuaire de l'éducation
 https://www.data.gouv.fr/fr/datasets/annuaire-de-leducation/
-fr-en-annuaire-education.csv
+fr-en-annuaire-education.csv 👈
 
 Adresse et géolocalisation des établissements d'enseignement du premier et second degrés
 https://www.data.gouv.fr/fr/datasets/adresse-et-geolocalisation-des-etablissements-denseignement-du-premier-et-second-degres-1/
@@ -122,7 +128,11 @@ https://www.data.gouv.fr/fr/datasets/table-de-passage-codes-certifications-et-fo
 6152ccdf850ef.csv
 ```
 
-## Mise en forme du texte dans uMap
+----
+
+## Notes diverses
+
+Mise en forme du texte dans uMap :
 
 ```
     *simple astérisque pour italique*
@@ -140,9 +150,7 @@ https://www.data.gouv.fr/fr/datasets/table-de-passage-codes-certifications-et-fo
     --- pour un séparateur horizontal
 ```
 
-----
-
-## Notes diverses
+API data.gouv.fr 
 
 ```
 Test de l'API "Annuaire éducation"
@@ -154,5 +162,6 @@ print(response)
 print(payload)
 ```
 
+----
 
 fin
