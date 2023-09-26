@@ -139,7 +139,7 @@ dict_uai_form = {
 
 
 ################################################################
-# contruction d'un (grand!) dictionnaires des établissements (annuaire)
+# contruction d'un (grand!) dictionnaire des établissements (annuaire)
 
 directory = 'data-annuaire.csv'
 key = 'identifiant_de_l_etablissement'
@@ -176,7 +176,7 @@ header = [ 'etab_'+i for i in header_etab ] + [ 'course_'+i for i in header_cour
 
 # je construis 'list_etablCourse' en itérant par uai, puis par formation :
 for uai in dict_uai_form.keys():
-    if uai == "" or uai == None:
+    if uai == "" or uai == None or not uai_check(uai):
         continue
     for course in dict_uai_form[uai]:
         #print("----------------\n", uai, course)
@@ -196,8 +196,15 @@ for uai in dict_uai_form.keys():
                 value = None
                 error = True
             dict_row['course_'+champ_course] = value
-        if not error:
-            list_etablCourse.append(dict_row)
+        try:
+            academie = dict_directory[uai]['libelle_academie']
+        except:
+            cp = '-'
+        if LOCATION_FILTER and academie not in LOCATION_LIST:
+                continue
+        else:
+            if not error:
+                list_etablCourse.append(dict_row)
 #print(list_etablCourse)
 
 
@@ -240,7 +247,7 @@ with open(SYNTHETIC_CSV_FILE, 'r', newline='', encoding='utf-8-sig') as csv_file
         description         += row[5] + ' **' + row[6] + '** (' + row[7] + ')\n'
         description         += 'académie : ' + row[8] + '\n'
         description         += 'téléphone : ' + row[13] + '\n'
-        description         += 'courriel : [[' + row[14] + ']]\n'
+        description         += 'courriel : [[mailto:' + row[14] + '|' + row[14] + ']]\n'
         description         += 'infos établissement : [[' + row[15] + '|site web]] - [[' + row[9] + '|fiche Onisep]]\n'
         description         += '\n'
         description         += 'formation de niveau : **' + row[20] + '** *(' + row[21] + ')*\n'

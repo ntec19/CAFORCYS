@@ -12,9 +12,11 @@ Les objectifs de cette moulinette en Python sont les suivants :
     - liste des formations
 - extraire les formations liées à la sécurité et à la cybersécurité
 - construire un fichier tableur, parr ligne, info formation et info établissement
-- construire un fichier umap à importer dans OSM pour proposer une cartographie exhaustive
+- construire un fichier umap à importer dans OSM pour proposer une carte interactive
 
-  
+Exemple : https://umap.openstreetmap.fr/fr/map/caforcys_960988#9/48.8457/2.5049
+
+<br>
 
 ----
 

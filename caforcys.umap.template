@@ -87,9 +87,9 @@
             "url_template": "//wxs.ign.fr/pratique/wmts/?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&STYLE=normal&TILEMATRIXSET=PM&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&FORMAT=image%2Fpng"
         },
         "tilelayersControl": false,
-        "zoom": 6,
+        "zoom": 9,
         "zoomControl": true
     },
     "type": "umap",
-    "uri": "https://umap.openstreetmap.fr/fr/map/caforcys_960988#10/48.8954/2.3277"
+    "uri": "https://umap.openstreetmap.fr/fr/map/caforcys_960988##9/48.8384/2.4142"
 }

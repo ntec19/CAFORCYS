@@ -164,23 +164,14 @@ SYNTHETIC_CSV_FILE  = 'synthese.csv'
 UMAP_TEMPLATE       = 'caforcys.umap.template'
 UMAP_TARGET         = 'caforcys.umap'
 
+LOCATION_FILTER     = True
+LOCATION_LIST       = [ 'Paris', 'Créteil', 'Versailles' ]
 
 ################################################################
 # CONSTANTES TECHNIQUES :
 
-TEMPO           = 0.1 # !!PB!! utile ?
 NSEP            = 32  # pour l'affichage des séparateurs
 NEWLINE         = "\n"  # pour le saut de ligne dans le print de DOC
-
-# pour sanitize()
-# !!PB!! utile ?
-CHAR_SEP        = "+"
-CHAR_SUB        = "_"
-MAJ             = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-SPE             = "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖŒÙÚÛÜ"
-NBR             = "0123456789-"
-LEG_CHAR        = MAJ + MAJ.lower() + SPE + SPE.lower() + NBR
-
 
 
 ################################################################
