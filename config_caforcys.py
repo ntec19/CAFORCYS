@@ -6,17 +6,7 @@
 # chercher les commentaires !!PB!! pour voir les modifs en attente
 
 # 👉 todo !!PB!! :
-'''
-Notes JM :
-bac pro Ciel
-mention compl cyber
-bts CIEL
-bts SIO
---
-cap agent de sécurité           👉👉 à ajouter !
-bac pro métiers de la sécu
-bts MOS managem op secu
-'''
+
 
 
 
@@ -42,7 +32,7 @@ DICT_SRC = {
         'name':     'Idéo-Actions de formation initiale-Univers lycée',
         'what':     'La formation initiale, qu\'elle soit générale ou professionnelle, est le périmètre traditionnel de l\'Onisep, qui s\'adresse en priorité aux jeunes pour une phase de première orientation à différentes étapes de leur cursus scolaire et étudiant. Les grandes étapes en étant jusqu\'ici principalement, mais pas uniquement, l\'orientation en fin de 3e ou l\'orientation en fin de Terminale.\nUne « action de formation » (AF) au sens Onisep est la mise en œuvre, dans un établissement enregistré et localisé, d\'une formation. Cette notion rejoint souvent l\'expression d\' « offre de formation » parfois utilisée par d\'autres organismes.\nPérimètre de ce jeu : les actions de formation initiale ainsi définies, et référencées par l\'Onisep pour le lycée (formations de niveau 2de, 1re, bac, CAP, CAP+1 ou équivalent…) et proposées principalement sous statut scolaire ou étudiant.\n\nAttention l\'Onisep ne diffuse plus sur ce site open data l\'offre de formation en apprentissage, dont il n\'assure pas la collecte exhaustive. Un décret confie désormais cette collecte aux Carif-Oref : http://opendata.onisep.fr/actualite/53/8-apprentissage-les-jeux-open-data-onisep-evoluent.htm',
         'format':   'csv',
-        'urlData':  'https://www.data.gouv.fr/fr/datasets/r/286cff5f-660b-46bd-9d85-06982aa3c064',
+        'urlData':  'https://www.data.gouv.fr/fr/datasets/r/c5a46b4e-f9ea-4d48-968c-3e201ae236f4',
         'file':     'data-lycees.csv' },
     
     # Idéo-Actions de formation initiale-Univers enseignement supérieur
@@ -52,7 +42,7 @@ DICT_SRC = {
         'name':     'Idéo-Actions de formation initiale-Univers enseignement supérieur',
         'what':     'La formation initiale, qu\'elle soit générale ou professionnelle, est le périmètre traditionnel de l\'Onisep, qui s\'adresse en priorité aux jeunes pour une phase de première orientation à différentes étapes de leur cursus scolaire et étudiant. Les grandes étapes en étant jusqu\'ici principalement, mais pas uniquement, l\'orientation en fin de 3e ou l\'orientation en fin de Terminale.\nUne « action de formation » (AF) au sens Onisep est la mise en œuvre, dans un établissement enregistré et localisé, d\'une formation. Cette notion rejoint souvent l\'expression d\'« offre de formation » parfois utilisée par d\'autres organismes.\nPérimètre de ce jeu : les actions de formation initiale ainsi définies, et référencées par l\'Onisep pour l\'enseignement supérieur (formations post-baccalauréat) et proposées principalement sous statut scolaire ou étudiant.\n\nAttention l\'Onisep ne diffuse plus sur ce site open data l\'offre de formation en apprentissage, dont il n\'assure pas la collecte exhaustive. Un décret confie désormais cette collecte aux Carif-Oref : http://opendata.onisep.fr/actualite/53/8-apprentissage-les-jeux-open-data-onisep-evoluent.htm',
         'format':   'csv',
-        'urlData':  'https://www.data.gouv.fr/fr/datasets/r/3652ea7a-b70a-4a98-b16f-77efc96c5f9e',
+        'urlData':  'https://www.data.gouv.fr/fr/datasets/r/b9ed62e0-ad26-4a11-a1f1-162ae9d86161',
         'file':     'data-sup.csv' }
 
 }
@@ -140,13 +130,13 @@ DICT_SCOPE_FORMATIONS = {
         'univers':          'sécu',
         'niveau':           '3',
         'formTypeSigle':    'CAP',
-        'formTypeLib':      'certificat d'aptitude professionnelle',
+        'formTypeLib':      'certificat d\'aptitude professionnelle',
         'formLib' :         'CAP agent de sécurité',
         'formSigle':        'AS',
         'rncp':             '36648',
         'codeSco':          '18620',
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.847',
-        'color':            '#99ff99'  }
+        'color':            '#99ff99'  },
     
     'FOR.3651': {
         'code':             'FOR.3651',
