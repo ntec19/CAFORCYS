@@ -1,7 +1,23 @@
 #!/usr/bin/env python3
 #
-# module setup.py 
-# v20230924
+# module config_caforcys.py 
+# v20231004
+# 
+# chercher les commentaires !!PB!! pour voir les modifs en attente
+
+# 👉 todo !!PB!! :
+'''
+Notes JM :
+bac pro Ciel
+mention compl cyber
+bts CIEL
+bts SIO
+--
+cap agent de sécurité           👉👉 à ajouter !
+bac pro métiers de la sécu
+bts MOS managem op secu
+'''
+
 
 
 ################################################################
@@ -119,6 +135,19 @@ DICT_SCOPE_FORMATIONS = {
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.8473',
         'color':            '#ff0000'  },
     
+    'FOR.847': {
+        'code':             'FOR.847',
+        'univers':          'sécu',
+        'niveau':           '3',
+        'formTypeSigle':    'CAP',
+        'formTypeLib':      'certificat d'aptitude professionnelle',
+        'formLib' :         'CAP agent de sécurité',
+        'formSigle':        'AS',
+        'rncp':             '36648',
+        'codeSco':          '18620',
+        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.847',
+        'color':            '#99ff99'  }
+    
     'FOR.3651': {
         'code':             'FOR.3651',
         'univers':          'sécu',
@@ -144,21 +173,9 @@ DICT_SCOPE_FORMATIONS = {
         'codeSco':          '32034401',
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.3732',
         'color':            '#33ff33'  }
+
 }
-'''
-    'FOR.': {
-        'code':             '',
-        'univers':          '',
-        'niveau':           '',
-        'formTypeSigle':    '',
-        'formTypeLib':      '',
-        'formLib' :         '',
-        'formSigle':        '',
-        'rncp':             '',
-        'codeSco':          '',
-        'urlOnisep':        '',
-        'color':            ''  },
-'''
+
 
 SYNTHETIC_CSV_FILE  = 'synthese.csv'
 UMAP_TEMPLATE       = 'caforcys.umap.template'

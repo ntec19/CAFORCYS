@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 #
 # script build.py
-# v20230924
+# v20231004
+# 
+# chercher les commentaires !!PB!! pour voir les modifs en attente
+
+
+# 👉 todo !!PB!! :
+
 
 
 # import du module 'setup', contenant les constantes et fonctions communes
@@ -65,7 +71,7 @@ for formation in DICT_SCOPE_FORMATIONS.keys():
 ################################################################
 # contruction des dictionnaires de correspondance
 
-dict_form_uai = {}
+dict_form_uai = {}  # !!PB!! : utile ?
 dict_uai_form = {}
 
 # Analyse du fichier de données : data-lycees.csv ET data-sup.csv
