@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 # script build.py
-# v20231004
+# v20231005
 # 
 # chercher les commentaires !!PB!! pour voir les modifs en attente
 
@@ -82,16 +82,20 @@ for file in list_files:
         reader = csv.reader(csv_file, delimiter=';')
         next(reader) # pour virer la première ligne qui contient les descripteurs de champs
         for row in reader:
-            try:
-                formation = row[2][-8:]         # utile si format de champ non conforme
+            try:                                # utile si 'row' non conforme
+                #formation = row[2][-8:]        # non, car le nombre après FOR. est sur 3 OU 4 chiffres (sic)
+                urlFor = row[2]                 # récup de l'URL Onisep
+                formation = urlFor[urlFor.index("FOR."):]
+                #print(formation)
             except:
                 formation = 'none'
             if formation in liste_formations:
-                try:
-                    uai = row[10]               # utile si format de champ non conforme
+                print(formation)
+                try:                            # utile si 'row' non conforme
+                    uai = row[10]
                 except:
                     uai = '0000000A'
-                    #print('UAI invalide :\n', row, '\n')
+                    #print('erreur de récupération de l UAI :\n', row, '\n')
                     #touche()
                 if not uai_check(uai):
                     uai = '0000000A'
@@ -256,7 +260,7 @@ with open(SYNTHETIC_CSV_FILE, 'r', newline='', encoding='utf-8-sig') as csv_file
         description         += 'infos établissement : [[' + row[15] + '|site web]] - [[' + row[9] + '|fiche Onisep]]\n'
         description         += '\n'
         description         += 'formation de niveau : **' + row[20] + '** *(' + row[21] + ')*\n'
-        description         += '[[' + row[27] + '|fiche Oniwep]] - [[https://www.francecompetences.fr/recherche/rncp/' + row[25] + '/|fiche RNCP]]\n'
+        description         += '[[' + row[27] + '|fiche Onisep]] - [[https://www.francecompetences.fr/recherche/rncp/' + row[25] + '/|fiche RNCP]]\n'
         properties = { "_umap_options": { "color": row[28], "iconClass": "Drop", "showLabel": None, }, "name": name, "description": description }
         feature = geojson.Feature(geometry=point, properties=properties)
         #print('\n\nfeature :\n', feature,'\n')

@@ -1,4 +1,6 @@
 {
+    "_version": 20231005
+    
     "geometry": {
         "coordinates": [
             1.99951171875,
@@ -14,7 +16,7 @@
                 },
                 "displayOnLoad": true,
                 "editMode": "advanced",
-                "name": "Formations sécurité - sûreté",
+                "name": "Formations sûreté - sécurité",
                 "permissions": {
                     "edit_status": 0
                 },

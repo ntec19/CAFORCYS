@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 # module config_caforcys.py 
-# v20231004
+# v20231005
 # 
 # chercher les commentaires !!PB!! pour voir les modifs en attente
 
@@ -73,6 +73,8 @@ XML complet avec descriptif, poursuites d'études, métiers, etc.
 '''
 DICT_SCOPE_FORMATIONS = {
     
+    # cyber
+
     'FOR.8727': {
         'code':             'FOR.8727',
         'univers':          'cyber',
@@ -125,6 +127,8 @@ DICT_SCOPE_FORMATIONS = {
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.8473',
         'color':            '#ff0000'  },
     
+    # sécu
+    
     'FOR.847': {
         'code':             'FOR.847',
         'univers':          'sécu',
@@ -133,8 +137,8 @@ DICT_SCOPE_FORMATIONS = {
         'formTypeLib':      'certificat d\'aptitude professionnelle',
         'formLib' :         'CAP agent de sécurité',
         'formSigle':        'AS',
-        'rncp':             '36648',
-        'codeSco':          '18620',
+        'rncp':             '18620',
+        'codeSco':          '50034405',
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.847',
         'color':            '#99ff99'  },
     
