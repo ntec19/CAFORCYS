@@ -2,12 +2,6 @@
 #
 # module config_caforcys.py 
 # v20231005
-# 
-# chercher les commentaires !!PB!! pour voir les modifs en attente
-
-# 👉 todo !!PB!! :
-
-
 
 
 ################################################################
@@ -127,6 +121,32 @@ DICT_SCOPE_FORMATIONS = {
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.8473',
         'color':            '#ff3d3d'  },
     
+    'FOR.5987': {
+        'code':             'FOR.5987',
+        'univers':          'cyber',
+        'niveau':           '5',
+        'formTypeSigle':    'BTS',
+        'formTypeLib':      'brevet de technicien supérieur',
+        'formLib' :         'BTS services informatiques aux organisations option A : solutions d\'infrastructure, systèmes et réseaux',
+        'formSigle':        'BTS SIO SISR',
+        'rncp':             '35340',
+        'codeSco':          '32032613',
+        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.5987',
+        'color':            '#ff3d3d'  },
+    
+    'FOR.5337': {
+        'code':             'FOR.5337',
+        'univers':          'cyber',
+        'niveau':           '5',
+        'formTypeSigle':    'BTS',
+        'formTypeLib':      'brevet de technicien supérieur',
+        'formLib' :         'BTS services informatiques aux organisations option B : solutions logicielles et applications métiers',
+        'formSigle':        'BTS SIO SLAM',
+        'rncp':             '35340',
+        'codeSco':          '32032614',
+        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.',
+        'color':            '#ff3d3d'  },
+    
     # sécu     color xxffxx   calque e0ffe0    cap b8ffb8      bp 8fff8f       mc 66ff66       bts 3dff3d
     
     'FOR.847': {
@@ -170,13 +190,13 @@ DICT_SCOPE_FORMATIONS = {
 
 }
 
-
 SYNTHETIC_CSV_FILE  = 'synthese.csv'
 UMAP_TEMPLATE       = 'caforcys.umap.template'
 UMAP_TARGET         = 'caforcys.umap'
 
 LOCATION_FILTER     = True
 LOCATION_LIST       = [ 'Paris', 'Créteil', 'Versailles' ]
+
 
 ################################################################
 # CONSTANTES TECHNIQUES :
@@ -211,6 +231,7 @@ except:
     print("❌ La bibliothèque \"geojson\" est manquante !\n")
     sys.exit(1)
 
+
 ################################################################
 # FONCTIONS :
 
@@ -223,16 +244,6 @@ def clear():
 def stamp():
     now = time.localtime()
     res = time.strftime("%Y%m%d_%H%M%S", now)
-    return res
-
-def sanitize(s):
-    # !!PB!! utile ?
-    res = ""
-    for letter in s:
-        if letter in LEG_CHAR:
-            res += letter
-        else:
-            res += CHAR_SUB
     return res
 
 def touche():
@@ -253,8 +264,6 @@ def uai_check(uai):
     # renvoie True si l'argument passé est un UAI valide : 0921234A
     pattern = "^\d{7}[A-Z]$"
     return re.search(pattern, uai)
-
-
 
 
 

@@ -1,8 +1,8 @@
 {
     "geometry": {
         "coordinates": [
-            1.99951171875,
-            50.9999288558597
+            2.35,
+            48.85
         ],
         "type": "Point"
     },
@@ -93,5 +93,5 @@
         "zoomControl": true
     },
     "type": "umap",
-    "uri": "https://umap.openstreetmap.fr/fr/map/caforcys_960988#11/48.85/2.36"
+    "uri": "https://umap.openstreetmap.fr/fr/map/caforcys_960988#10/48.9/2.4"
 }

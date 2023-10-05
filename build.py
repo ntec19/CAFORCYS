@@ -2,22 +2,11 @@
 #
 # script build.py
 # v20231005
-# 
-# chercher les commentaires !!PB!! pour voir les modifs en attente
-
-# 👉 todo !!PB!! :
-
 
 
 # import du module 'setup', contenant les constantes et fonctions communes
 from config_caforcys import *
 clear()
-
-
-################################################################
-# CONSTANTES SPECIFIQUES :
-
-# ...
 
 
 ################################################################
@@ -44,7 +33,6 @@ if choice.lower() == 'o':
         with open(fileName, 'wb') as f:
             f.write(r.content)
         message('i', f'Fichier "{name}" correctement téléchargé -> {fileName}')
-        touche()
 
 validDataFiles = True
 for s in DICT_SRC.keys():
@@ -63,24 +51,21 @@ if not validDataFiles:
 liste_formations    = []
 for formation in DICT_SCOPE_FORMATIONS.keys():
     liste_formations.append(formation)
-#print("Liste des formations :\n", liste_formations, "\n")
-#touche()
 
 
 ################################################################
 # contruction des dictionnaires de correspondance
 
-dict_form_uai = {}  # !!PB!! : utile ?
+dict_form_uai = {}  # !!PB!! : finalement non utilisé par la suite ; suppression possible
 dict_uai_form = {}
 
 # Analyse du fichier de données : data-lycees.csv ET data-sup.csv
-
 list_files = ['data-lycees.csv', 'data-sup.csv']
 
 for file in list_files:
     with open(file, 'r', newline='', encoding='utf-8-sig') as csv_file:
         reader = csv.reader(csv_file, delimiter=';')
-        next(reader) # pour virer la première ligne qui contient les descripteurs de champs
+        next(reader)                            # pour virer la première ligne qui contient les descripteurs de champs
         for row in reader:
             try:                                # utile si 'row' non conforme
                 #formation = row[2][-8:]        # non, car le nombre après FOR. est sur 3 OU 4 chiffres (sic)
@@ -93,12 +78,8 @@ for file in list_files:
                     uai = row[10]
                 except:
                     uai = '0000000A'
-                    #print('erreur de récupération de l UAI :\n', row, '\n')
-                    #touche()
                 if not uai_check(uai):
                     uai = '0000000A'
-                    #print('UAI invalide :\n', row, '\n')
-                    #touche()
                 # ajout à dict_form_uai
                 if formation in dict_form_uai.keys():
                     dict_form_uai[formation].append(uai)
@@ -110,39 +91,6 @@ for file in list_files:
                     dict_uai_form[uai].append(formation)
                 else:
                     dict_uai_form[uai] = [formation]
-
-# print("dict_form_uai :\n", dict_form_uai)
-# print("dict_uai_form :\n",dict_uai_form, "\n")
-message('i', f'Fin de la construction des dictionnaire \'dict_form_uai\' et \'dict_uai_form\' !')
-touche()
-
-'''
-Pour mes tests, jeu de données réduits :
-dict_uai_form = {
-    "0101015Z": [
-        "FOR.8727"
-    ],
-    "0110008Z": [
-        "FOR.3651",
-        "FOR.8727"
-    ],
-    "0120096P": [
-        "FOR.3651"
-    ],
-    "0121309H": [
-        "FOR.8727",
-        "FOR.8727"
-    ],
-    "0131436R": [
-        "FOR.8727",
-        "FOR.8473",
-        "FOR.8472"
-    ],
-    "0131709M": [
-        "FOR.8727"
-    ],
-}
-'''
 
 
 ################################################################
@@ -160,10 +108,6 @@ with open(directory, 'r', newline='', encoding='utf-8-sig') as csv_file:
         # del row[key] => non, car plus simple à récupérer ensuite
         # Utilisez la clé 'identifiant_de_l_etablissement' pour ajouter le dictionnaire de l'étab dans le dictionnaire
         dict_directory[k] = row
-# pour mes tests :
-# print(dict_directory)
-# print(sys.getsizeof(dict_directory))
-# print(dict_directory['0921229L'])
 
 
 ################################################################
@@ -212,7 +156,6 @@ for uai in dict_uai_form.keys():
         else:
             if not error:
                 list_etablCourse.append(dict_row)
-#print(list_etablCourse)
 
 
 ################################################################
@@ -224,7 +167,6 @@ with open(SYNTHETIC_CSV_FILE, 'w', newline='', encoding='utf-8-sig') as csv_file
     writer.writerows(list_etablCourse)
 
 message('i', f"Fichier de synthèse '{SYNTHETIC_CSV_FILE}' créé !")
-touche()
 
 
 ################################################################
@@ -238,7 +180,12 @@ with open(SYNTHETIC_CSV_FILE, 'r', newline='', encoding='utf-8-sig') as csv_file
     reader = csv.reader(csv_file, delimiter =';')
     next(reader)  # pour faire sauter la première ligne qui contient les descripteurs
     for row in reader:
-        #print(row)
+        '''
+        row :
+        0                                           1                                       2                               3                   4                   5                       6                       7                               8                           9                                                                       10                          11                                  12                          13                              14                              15                              16                      17                          18                  19                      20                  21                          22                                      23                                                  24                          25                  26                  27                                                                  28
+        ['etab_identifiant_de_l_etablissement',     'etab_nom_etablissement',               'etab_adresse_1',               'etab_adresse_2',   'etab_adresse_3',   'etab_code_postal',     'etab_nom_commune',     'etab_libelle_departement',     'etab_libelle_academie',    'etab_fiche_onisep',                                                    'etab_type_etablissement',  'etab_statut_public_prive',         'etab_libelle_nature',      'etab_telephone',               'etab_mail',                    'etab_web',                     'etab_latitude',        'etab_longitude',           'course_code',      'course_univers',       'course_niveau',    'course_formTypeSigle',     'course_formTypeLib',                   'course_formLib',                                   'course_formSigle',         'course_rncp',      'course_codeSco',   'course_urlOnisep',                                                 'course_color']
+        ['0850028U',                                'Lycée professionnel Edouard Branly',   '5 boulevard Edouard Branly',   'BP 259',           '',                 '85006',                'La Roche-sur-Yon',     'Vendée',                       'Nantes',                   'https://www.onisep.fr/http/redirection/etablissement/slug/ENS.3241',   'Lycée',                    'Public',                           'LYCEE PROFESSIONNEL',      '02 51 24 06 06',               'ce.0850028u@ac-nantes.fr',     'http://branly.e-lyco.fr/',     '46.67421847152482',    '-1.4419439014403423',      'FOR.3732',         'sécu',                 '5',                'BTS',                      'brevet de technicien supérieur',       'BTS Management opérationnel de la sécurité',       'MOS',                      '35393',            '32034401',         'http://www.onisep.fr/http/redirection/formation/slug/FOR.3732',    '#33ff33']
+        '''
         try:
             point = geojson.Point((float(row[17]), float(row[16])))
         except:
@@ -261,49 +208,23 @@ with open(SYNTHETIC_CSV_FILE, 'r', newline='', encoding='utf-8-sig') as csv_file
         description         += '[[' + row[27] + '|fiche Onisep]] - [[https://www.francecompetences.fr/recherche/rncp/' + row[25] + '/|fiche RNCP]]\n'
         properties = { "_umap_options": { "color": row[28], "iconClass": "Drop", "showLabel": None, }, "name": name, "description": description }
         feature = geojson.Feature(geometry=point, properties=properties)
-        #print('\n\nfeature :\n', feature,'\n')
-        #touche()
         if row[19] == 'cyber':
             listFeaturesCyber.append(feature)
-        if row[19] == 'sécu':
+        elif row[19] == 'sécu':
             listFeaturesSecu.append(feature)
-        #print('listFeaturesCyber :\n', listFeaturesCyber,'\n')
-        #print('listFeaturesSecu :\n', listFeaturesCyber,'\n')
 
+# récupération du contenu du ichier modèle UMAP
 with open(UMAP_TEMPLATE, 'r', encoding="utf-8") as f:
     umapString = f.read()
 
+# substitution des chaînes bidon par les données carto
 umapString  = umapString.replace('to_be_replaced_secu',str(listFeaturesSecu)).replace('to_be_replaced_cyber',str(listFeaturesCyber))
 
+# écriture du fichier UMAP
 with open(UMAP_TARGET, 'w', encoding="utf-8") as f:
     f.write(umapString)
 
-with open('secu.geojson', 'w', encoding="utf-8") as f:
-    f.write(str(listFeaturesSecu))
-with open('cyber.geojson', 'w', encoding="utf-8") as f:
-    f.write(str(listFeaturesCyber))
-
-
-'''
-row :
-0                                           1                                       2                               3                   4                   5                       6                       7                               8                           9                                                                       10                          11                                  12                          13                              14                              15                              16                      17                          18                  19                      20                  21                          22                                      23                                                  24                          25                  26                  27                                                                  28
-['etab_identifiant_de_l_etablissement',     'etab_nom_etablissement',               'etab_adresse_1',               'etab_adresse_2',   'etab_adresse_3',   'etab_code_postal',     'etab_nom_commune',     'etab_libelle_departement',     'etab_libelle_academie',    'etab_fiche_onisep',                                                    'etab_type_etablissement',  'etab_statut_public_prive',         'etab_libelle_nature',      'etab_telephone',               'etab_mail',                    'etab_web',                     'etab_latitude',        'etab_longitude',           'course_code',      'course_univers',       'course_niveau',    'course_formTypeSigle',     'course_formTypeLib',                   'course_formLib',                                   'course_formSigle',         'course_rncp',      'course_codeSco',   'course_urlOnisep',                                                 'course_color']
-['0850028U',                                'Lycée professionnel Edouard Branly',   '5 boulevard Edouard Branly',   'BP 259',           '',                 '85006',                'La Roche-sur-Yon',     'Vendée',                       'Nantes',                   'https://www.onisep.fr/http/redirection/etablissement/slug/ENS.3241',   'Lycée',                    'Public',                           'LYCEE PROFESSIONNEL',      '02 51 24 06 06',               'ce.0850028u@ac-nantes.fr',     'http://branly.e-lyco.fr/',     '46.67421847152482',    '-1.4419439014403423',      'FOR.3732',         'sécu',                 '5',                'BTS',                      'brevet de technicien supérieur',       'BTS Management opérationnel de la sécurité',       'MOS',                      '35393',            '32034401',         'http://www.onisep.fr/http/redirection/formation/slug/FOR.3732',    '#33ff33']
-'''
-
-
-
-
-'''
-to be continued :
-
-à partir de ce très beau fichier synthèse.csv,
-créer un encore plus beau fichier UMAP en utilisant la bibliothèque geojson
-Deux calques : cyber et sécu
-
-
-'''
-
-
+# message d'allégresse ;-)
+message('i', f'Fichier {UMAP_TARGET} généré : à importer dans umap.openstreetmap.fr\n  ☀️ ☀️ ☀️ ☀️    That\'s all folks!    ☀️ ☀️ ☀️ ☀️\n')
 
 # fin

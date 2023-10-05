@@ -14,7 +14,7 @@ Les objectifs de cette moulinette en Python sont les suivants :
 - construire un fichier tableur, parr ligne, info formation et info établissement
 - construire un fichier umap à importer dans OSM pour proposer une carte interactive
 
-Exemple : https://umap.openstreetmap.fr/fr/map/caforcys_960988#9/48.8457/2.5049
+👉 [**Aperçu du rendu actuel**](https://umap.openstreetmap.fr/fr/map/caforcys_960988#10/48.9/2.4)
 
 <br>
 
