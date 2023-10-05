@@ -86,11 +86,9 @@ for file in list_files:
                 #formation = row[2][-8:]        # non, car le nombre après FOR. est sur 3 OU 4 chiffres (sic)
                 urlFor = row[2]                 # récup de l'URL Onisep
                 formation = urlFor[urlFor.index("FOR."):]
-                #print(formation)
             except:
                 formation = 'none'
             if formation in liste_formations:
-                print(formation)
                 try:                            # utile si 'row' non conforme
                     uai = row[10]
                 except:
