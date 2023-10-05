@@ -26,7 +26,7 @@ DICT_SRC = {
         'name':     'Idéo-Actions de formation initiale-Univers lycée',
         'what':     'La formation initiale, qu\'elle soit générale ou professionnelle, est le périmètre traditionnel de l\'Onisep, qui s\'adresse en priorité aux jeunes pour une phase de première orientation à différentes étapes de leur cursus scolaire et étudiant. Les grandes étapes en étant jusqu\'ici principalement, mais pas uniquement, l\'orientation en fin de 3e ou l\'orientation en fin de Terminale.\nUne « action de formation » (AF) au sens Onisep est la mise en œuvre, dans un établissement enregistré et localisé, d\'une formation. Cette notion rejoint souvent l\'expression d\' « offre de formation » parfois utilisée par d\'autres organismes.\nPérimètre de ce jeu : les actions de formation initiale ainsi définies, et référencées par l\'Onisep pour le lycée (formations de niveau 2de, 1re, bac, CAP, CAP+1 ou équivalent…) et proposées principalement sous statut scolaire ou étudiant.\n\nAttention l\'Onisep ne diffuse plus sur ce site open data l\'offre de formation en apprentissage, dont il n\'assure pas la collecte exhaustive. Un décret confie désormais cette collecte aux Carif-Oref : http://opendata.onisep.fr/actualite/53/8-apprentissage-les-jeux-open-data-onisep-evoluent.htm',
         'format':   'csv',
-        'urlData':  'https://www.data.gouv.fr/fr/datasets/r/c5a46b4e-f9ea-4d48-968c-3e201ae236f4',
+        'urlData':  'https://api.opendata.onisep.fr/downloads/605340ddc19a9/605340ddc19a9.csv',
         'file':     'data-lycees.csv' },
     
     # Idéo-Actions de formation initiale-Univers enseignement supérieur
@@ -36,7 +36,7 @@ DICT_SRC = {
         'name':     'Idéo-Actions de formation initiale-Univers enseignement supérieur',
         'what':     'La formation initiale, qu\'elle soit générale ou professionnelle, est le périmètre traditionnel de l\'Onisep, qui s\'adresse en priorité aux jeunes pour une phase de première orientation à différentes étapes de leur cursus scolaire et étudiant. Les grandes étapes en étant jusqu\'ici principalement, mais pas uniquement, l\'orientation en fin de 3e ou l\'orientation en fin de Terminale.\nUne « action de formation » (AF) au sens Onisep est la mise en œuvre, dans un établissement enregistré et localisé, d\'une formation. Cette notion rejoint souvent l\'expression d\'« offre de formation » parfois utilisée par d\'autres organismes.\nPérimètre de ce jeu : les actions de formation initiale ainsi définies, et référencées par l\'Onisep pour l\'enseignement supérieur (formations post-baccalauréat) et proposées principalement sous statut scolaire ou étudiant.\n\nAttention l\'Onisep ne diffuse plus sur ce site open data l\'offre de formation en apprentissage, dont il n\'assure pas la collecte exhaustive. Un décret confie désormais cette collecte aux Carif-Oref : http://opendata.onisep.fr/actualite/53/8-apprentissage-les-jeux-open-data-onisep-evoluent.htm',
         'format':   'csv',
-        'urlData':  'https://www.data.gouv.fr/fr/datasets/r/b9ed62e0-ad26-4a11-a1f1-162ae9d86161',
+        'urlData':  'https://api.opendata.onisep.fr/downloads/605344579a7d7/605344579a7d7.csv',
         'file':     'data-sup.csv' }
 
 }
