@@ -225,6 +225,8 @@ with open(UMAP_TARGET, 'w', encoding="utf-8") as f:
     f.write(umapString)
 
 # message d'allégresse ;-)
-message('i', f'Fichier {UMAP_TARGET} généré : à importer dans umap.openstreetmap.fr\n  ☀️ ☀️ ☀️ ☀️    That\'s all folks!    ☀️ ☀️ ☀️ ☀️\n')
+message('i', f'Fichier {UMAP_TARGET} généré : à importer dans umap.openstreetmap.fr\n\n  ☀️ ☀️ ☀️ ☀️    That\'s all folks!    ☀️ ☀️ ☀️ ☀️')
+
+
 
 # fin
