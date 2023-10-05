@@ -73,7 +73,7 @@ XML complet avec descriptif, poursuites d'études, métiers, etc.
 '''
 DICT_SCOPE_FORMATIONS = {
     
-    # cyber
+    # cyber     color ffxxxx   calque ffe0e0    cap ffb8b8      bp ff8f8f       mc ff6666       bts ff3d3d
 
     'FOR.8727': {
         'code':             'FOR.8727',
@@ -86,7 +86,7 @@ DICT_SCOPE_FORMATIONS = {
         'rncp':             '37489',
         'codeSco':          '40025519',
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.8727',
-        'color':            '#ff9999' },
+        'color':            '#ff8f8f' },
     
     'FOR.8513': {
         'code':             'FOR.8513',
@@ -112,7 +112,7 @@ DICT_SCOPE_FORMATIONS = {
         'rncp':             '37391',
         'codeSco':          '32020116',
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.8472',
-        'color':            '#ff3333'  },
+        'color':            '#ff3d3d'  },
     
     'FOR.8473': {
         'code':             'FOR.8473',
@@ -125,9 +125,9 @@ DICT_SCOPE_FORMATIONS = {
         'rncp':             '37391',
         'codeSco':          '32025521',
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.8473',
-        'color':            '#ff0000'  },
+        'color':            '#ff3d3d'  },
     
-    # sécu
+    # sécu     color xxffxx   calque e0ffe0    cap b8ffb8      bp 8fff8f       mc 66ff66       bts 3dff3d
     
     'FOR.847': {
         'code':             'FOR.847',
@@ -140,7 +140,7 @@ DICT_SCOPE_FORMATIONS = {
         'rncp':             '18620',
         'codeSco':          '50034405',
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.847',
-        'color':            '#99ff99'  },
+        'color':            '#b8ffb8'  },
     
     'FOR.3651': {
         'code':             'FOR.3651',
@@ -153,7 +153,7 @@ DICT_SCOPE_FORMATIONS = {
         'rncp':             '19114',
         'codeSco':          '40034403',
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.3651',
-        'color':            '#66ff66'  },
+        'color':            '#8fff8f'  },
     
     'FOR.3732': {
         'code':             'FOR.3732',
@@ -166,7 +166,7 @@ DICT_SCOPE_FORMATIONS = {
         'rncp':             '35393',
         'codeSco':          '32034401',
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.3732',
-        'color':            '#33ff33'  }
+        'color':            '#3dff3d'  }
 
 }
 

@@ -1,6 +1,4 @@
 {
-    "_version": 20231005
-    
     "geometry": {
         "coordinates": [
             1.99951171875,
@@ -11,6 +9,7 @@
     "layers": [
         {
             "_umap_options": {
+                "color": "#e0ffe0",
                 "browsable": true,
                 "cluster": {
                 },
@@ -29,6 +28,7 @@
         },
         {
             "_umap_options": {
+                "color": "#ffe0e0",
                 "browsable": true,
                 "cluster": {
                 },
@@ -93,5 +93,5 @@
         "zoomControl": true
     },
     "type": "umap",
-    "uri": "https://umap.openstreetmap.fr/fr/map/caforcys_960988##9/48.8384/2.4142"
+    "uri": "https://umap.openstreetmap.fr/fr/map/caforcys_960988#11/48.85/2.36"
 }
