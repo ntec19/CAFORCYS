@@ -2,5 +2,6 @@ data-annuaire.csv
 data-lycees.csv
 data-sup.csv
 synthese.csv
+*.umap
 *.pyc
 .~lock*.*
