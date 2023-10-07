@@ -15,7 +15,7 @@
                 },
                 "displayOnLoad": true,
                 "editMode": "advanced",
-                "name": "Formations sûreté - sécurité",
+                "name": "Formations sûreté-sécurité",
                 "permissions": {
                     "edit_status": 0
                 },
@@ -50,8 +50,8 @@
         "captionBar": false,
         "captionMenus": false,
         "color": "LawnGreen",
-        "datalayersControl": "expanded",
-        "description": "Carte des formations en sécurité et cybersécurité",
+        "datalayersControl": true,
+        "description": "Carte des formations en sûreté-sécurité et cybersécurité en Île-de-France",
         "displayPopupFooter": false,
         "easing": false,
         "editinosmControl": false,
@@ -77,7 +77,7 @@
         "scaleControl": true,
         "scrollWheelZoom": true,
         "searchControl": null,
-        "shortCredit": "by CMQ",
+        "shortCredit": "[[https://campusecurite.cyu.fr/|by CMQ]]",
         "slideshow": {
         },
         "tilelayer": {

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 # script build.py
-# v20231005
+# v20231007
 
 
 # import du module 'setup', contenant les constantes et fonctions communes
@@ -200,7 +200,7 @@ with open(SYNTHETIC_CSV_FILE, 'r', newline='', encoding='utf-8-sig') as csv_file
             description     += row[4] + '\n'
         description         += row[5] + ' **' + row[6] + '** (' + row[7] + ')\n'
         description         += 'académie : ' + row[8] + '\n'
-        description         += 'téléphone : ' + row[13] + '\n'
+        description         += 'téléphone : [[tel:' + row[13].replace(' ','') + '|' + row[13] + ']]\n'
         description         += 'courriel : [[mailto:' + row[14] + '|' + row[14] + ']]\n'
         description         += 'infos établissement : [[' + row[15] + '|site web]] - [[' + row[9] + '|fiche Onisep]]\n'
         description         += '\n'
