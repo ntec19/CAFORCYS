@@ -191,7 +191,7 @@ with open(SYNTHETIC_CSV_FILE, 'r', newline='', encoding='utf-8-sig') as csv_file
         except:
             continue
         name = row[23]
-        description         =  '**' + row[1] + '**\n'
+        description         =  '**' + row[1] + '** *(' + row[11].lower() + ')*\n'
         if row[2] != '':
             description     += row[2] + '\n'
         if row[3] != '':
