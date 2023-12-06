@@ -144,7 +144,7 @@ DICT_SCOPE_FORMATIONS = {
         'formSigle':        'BTS SIO SLAM',
         'rncp':             '35340',
         'codeSco':          '32032614',
-        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.',
+        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.5337',
         'color':            '#ff3d3d'  },
     
     # sécu     color xxffxx   calque e0ffe0    cap b8ffb8      bp 8fff8f       mc 66ff66       bts 3dff3d
