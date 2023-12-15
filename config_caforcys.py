@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 #
 # module config_caforcys.py 
-# v20231007
+# v20231215
 
+# traquer les !!TODO!!
 
 ################################################################
 # CONSTANTES FONCTIONNELLES :
@@ -162,17 +163,43 @@ DICT_SCOPE_FORMATIONS = {
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.847',
         'color':            '#b8ffb8'  },
     
+    'FOR.289': {
+        'code':             'FOR.289',
+        'univers':          'sécu',
+        'niveau':           '3',
+        'formTypeSigle':    'CAP',
+        'formTypeLib':      'certificat d\'aptitude professionnelle',
+        'formLib' :         'CAP agent vérificateur d\'appareils extincteurs',
+        'formSigle':        'AVAE',
+        'rncp':             '38228',
+        'codeSco':          '50025133',
+        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.289',
+        'color':            '#b8ffb8'  },
+    
     'FOR.3651': {
         'code':             'FOR.3651',
         'univers':          'sécu',
         'niveau':           '4',
         'formTypeSigle':    'bac pro',
         'formTypeLib':      'baccalauréat professionnel',
-        'formLib' :         'bac pro Métiers de la sécurité',
+        'formLib' :         'bac pro métiers de la sécurité',
         'formSigle':        '',
         'rncp':             '19114',
         'codeSco':          '40034403',
         'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.3651',
+        'color':            '#8fff8f'  },
+    
+    'FOR.3651xxx': { # !!TODO!! code FOR.xxxx à déterminer
+        'code':             'FOR.3651xxx', # !!TODO!! code FOR.xxxx à déterminer
+        'univers':          'sécu',
+        'niveau':           '4',
+        'formTypeSigle':    'BP',
+        'formTypeLib':      'brevet professionnel',
+        'formLib' :         'brevet professionnel agent technique de prévention et de sécurité',
+        'formSigle':        'BP ATPS',
+        'rncp':             '38227',
+        'codeSco':          '45034401',
+        'urlOnisep':        'http://www.onisep.fr/http/redirection/formation/slug/FOR.3651xxx', # !!TODO!! code FOR.xxxx à déterminer
         'color':            '#8fff8f'  },
     
     'FOR.3732': {

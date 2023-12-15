@@ -3,6 +3,7 @@
 # script build.py
 # v20231007
 
+# traquer les !!TODO!!
 
 # import du module 'setup', contenant les constantes et fonctions communes
 from config_caforcys import *
